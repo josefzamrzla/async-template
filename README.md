@@ -32,7 +32,7 @@ Directive parameters
 * observe - observe only manually defined list of directive attributes. Directive observes all attributes by default.
 
 
-# Load data using HTTP GET, no endpoint params
+### Load data using HTTP GET, no endpoint params
 
 Simply loads JSON data from endpoint using HTTP GET method, loads template and compiles it with data
 
@@ -40,7 +40,7 @@ Simply loads JSON data from endpoint using HTTP GET method, loads template and c
 <async-template endpoint="/api/some_endpoint" template="templates/template.html" />
 ```
 
-# Load data using JSONP, no endpoint params
+### Load data using JSONP, no endpoint params
 
 Simply loads JSON data from endpoint using JSONP method, loads template and compiles it with data
 
@@ -48,13 +48,13 @@ Simply loads JSON data from endpoint using JSONP method, loads template and comp
 <async-template endpoint="/api/some_endpoint" template="templates/template.html" jsonp="true" error-template="templates/404.html" />
 ```
 
-# Load data with fixed params
+### Load data with fixed params
 
 ```html
 <async-template endpoint="/api/user/:userId/info" template="templates/template.html" userId="1" />
 ```
 
-# Load data with params binded to application scope
+### Load data with params binded to application scope
 
 Loads data from endpoint, user ID is taken from app scope - method getUserId(). Directive observes this parameter,
 so when it's value changes, it reloads appropriate data.
@@ -63,7 +63,7 @@ so when it's value changes, it reloads appropriate data.
 <async-template endpoint="/api/user/:userId/info" template="templates/template.html" userId="{{getUserId()}}" />
 ```
 
-# Load data periodically every 1 second
+### Load data periodically every 1 second
 
 ```html
 <async-template endpoint="/api/user/:userId/info" template="templates/template.html" userId="1" reload-interval="1000" />
