@@ -2,7 +2,7 @@
 
 AngularJS directive to load both JSON data from remote endpoint and template asynchronously to a page.
 
-I'm hardly working on some example :-)
+See example for some sample usage.
 
 ## Installation
 
