@@ -60,11 +60,11 @@ Loads data from endpoint, user ID is taken from app scope - method getUserId(). 
 so when it's value changes, it reloads appropriate data.
 
 ```html
-<async-template endpoint="/api/user/:userId/info" template="templates/template.html" userId="{{getUserId()}}" />
+<async-template endpoint="/api/user/:userId/info" template="templates/template.html" user-id="{{getUserId()}}" />
 ```
 
 ### Load data periodically every 1 second
 
 ```html
-<async-template endpoint="/api/user/:userId/info" template="templates/template.html" userId="1" reload-interval="1000" />
+<async-template endpoint="/api/user/:userId/info" template="templates/template.html" user-id="{{getUserId()}}" reload-interval="1000" />
 ```
