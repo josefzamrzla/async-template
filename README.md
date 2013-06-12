@@ -2,7 +2,7 @@
 
 AngularJS directive to load both JSON data from remote endpoint and template asynchronously to a page.
 
-See example for some sample usage.
+See example for some sample usage or try a [live demo](http://vast-brushlands-3412.herokuapp.com/example/).
 
 ## Installation
 
