@@ -6,10 +6,10 @@ I'm hardly working on some example :-)
 
 ## Installation
 
-Simply attach JS file to your page and add 'asyncTemplateModule' module as a dependency
+Simply attach JS file to your page and add 'asyncTemplateModule' module as a dependency ...
 
 ```javascript
-var app = angular.module('asyncTplTest', ['asyncTemplateModule']);
+var app = angular.module('yourModuleName', ['asyncTemplateModule']);
 ```
 
 ... and use it in your templates
