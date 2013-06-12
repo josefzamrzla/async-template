@@ -26,6 +26,11 @@
             replace:true,
             scope: {},
             compile: function (tElement, tAttrs) {
+                if (!(tAttrs.endpoint && tAttrs.template)) {
+                    console.log('Endpoint and Template params are required!');
+                    return false;
+                }
+
                 // attach attrs to scope
                 var attrsCount = 0;
                 for (var property in tAttrs.$attr) {
