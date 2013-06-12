@@ -1,0 +1,118 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/docs.css">
+</head>
+<body ng-app="asyncTplTest">
+<!--[if lt IE 7]>
+<p class="chromeframe">You are using a non-browser. <a href="http://browsehappy.com/">Get some real browser today!</a></p>
+<![endif]-->
+
+<h1>Async template directive examples</h1>
+
+<!--http://vast-brushlands-3412.herokuapp.com/-->
+<div class="bs-docs-example" ng-controller="simpleUsageCtrl">
+    <h2>Simple usage</h2>
+
+    <p>
+        <b>Use-case:</b> You have a JSON endpoint without any params and want to load data to a template. Endpoint supports
+        CORS, so you can use simple HTTP GET method.
+    </p>
+
+    <b>Usage</b>
+    <pre class="prettyprint">&lt;async-template endpoint="http://vast-brushlands-3412.herokuapp.com/users" template="templates/users_list.html" /&gt;</pre>
+
+    <b>Result</b>
+    <async-template endpoint="http://vast-brushlands-3412.herokuapp.com/users" template="templates/users_list.html" />
+</div>
+
+<div class="bs-docs-example" ng-controller="bindingToScopeCtrl">
+    <h2>Binding to scope</h2>
+
+    <p>
+        <b>Use case:</b> You have 1 method (getUserId) and 1 variable (showTags) in your scope and you want to bind them to
+        two async-template directives at once. First directive loads data using HTTP GET and second using JSONP. Second
+        endpoint serves data after 2 seconds timeout. You
+        don't want to reload data on every showTags change, so you set the "observe" attribute to overwrite list of observed attributes.
+    </p>
+
+    <b>First directive usage (HTTP GET)</b>
+    <pre class="prettyprint">&lt;async-template endpoint="http://vast-brushlands-3412.herokuapp.com/user/:userId/info" template="templates/user_info.html" show-tags="{{showTags}}" user-id="{{getUserId()}}" observe="userId"&gt;loading ...&lt;/async-template&gt;</pre>
+
+    <b>Second directive usage (JSONP)</b>
+    <pre class="prettyprint">&lt;async-template jsonp="true" endpoint="http://vast-brushlands-3412.herokuapp.com/user/:userId/tasks" template="templates/user_tasks.html" user-id="{{getUserId()}}" error-template="templates/error-tpl.html"&gt;loading ...&lt;/async-template&gt;</pre>
+
+
+    <b>Result</b>
+    <div class="form-inline">
+        <label for="user-id">User</label>
+        <select id="user-id" ng-model="user">
+            <option value="1">ID 1</option>
+            <option value="2">ID 2</option>
+            <option value="3">ID 3</option>
+            <option value="foobar">Nonexistent ID</option>
+        </select>
+
+
+        <label for="show-tags">Show tags</label>
+        <select id="show-tags" ng-model="showTags">
+
+            <option value="1">yes</option>
+            <option value="0">no</option>
+        </select>
+    </div>
+
+    <fieldset>
+        <legend>HTTP GET</legend>
+        <async-template endpoint="http://vast-brushlands-3412.herokuapp.com/user/:userId/info" template="templates/user_info.html" show-tags="{{showTags}}" user-id="{{getUserId()}}" observe="userId">loading ...</async-template>
+    </fieldset>
+
+    <fieldset>
+        <legend>JSONP</legend>
+        <async-template jsonp="true" endpoint="http://vast-brushlands-3412.herokuapp.com/user/:userId/tasks" template="templates/user_tasks.html" user-id="{{getUserId()}}" error-template="templates/error-tpl.html">loading ...</async-template>
+    </fieldset>
+</div>
+
+<div class="bs-docs-example" ng-controller="reloadingCtrl">
+    <h2>Automatic reload</h2>
+
+    <p>
+        <b>Use case:</b> You want to load data periodically from endpoint using 2 params binded to current scope.
+    </p>
+
+    <b>Usage</b>
+    <pre class="prettyprint">&lt;async-template jsonp="true" endpoint="http://vast-brushlands-3412.herokuapp.com/:subject" template="templates/reload.html" subject="{{subject}}" reload-interval="{{interval}}" error-template="templates/error-tpl.html"&gt;loading ...&lt;/async-template&gt;</pre>
+
+    <b>Result</b>
+    <label for="subject">Subject</label>
+    <select id="subject" ng-model="subject">
+        <option value="number">number</option>
+        <option value="time">time</option>
+    </select>
+
+    <label for="interval">Interval</label>
+    <select id="interval" ng-model="interval">
+        <option value="500">0.5 s</option>
+        <option value="1000">1 s</option>
+        <option value="2000">2 s</option>
+        <option value="5000">5 s</option>
+    </select>
+    <async-template jsonp="true" endpoint="http://vast-brushlands-3412.herokuapp.com/:subject" template="templates/reload.html" subject="{{subject}}" reload-interval="{{interval}}" error-template="templates/error-tpl.html">loading ...</async-template>
+</div>
+
+<script src="js/lib/angular.js"></script>
+<script src="js/lib/angular-resource.js"></script>
+<script src="../async-template.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+</html>

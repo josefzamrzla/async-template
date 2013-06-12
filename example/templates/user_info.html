@@ -1,0 +1,15 @@
+<div>
+    <div ng-show="responseData.name">
+        <h4>{{responseData.name}}</h4>
+        <p>
+            Position: {{responseData.position}}
+        </p>
+        <ul ng-show="showTags">
+            <li ng-repeat="tag in responseData.tags">{{tag}}</li>
+        </ul>
+    </div>
+    <div ng-hide="responseData.name">
+        User not found.
+    </div>
+</div>
+
