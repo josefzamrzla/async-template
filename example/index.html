@@ -29,7 +29,7 @@
     </p>
 
     <b>Usage</b>
-    <pre class="prettyprint">&lt;async-template endpoint="http://vast-brushlands-3412.herokuapp.com/users" template="templates/users_list.html" /&gt;</pre>
+    <pre class="prettyprint ng-non-bindable">&lt;async-template endpoint="http://vast-brushlands-3412.herokuapp.com/users" template="templates/users_list.html" /&gt;</pre>
 
     <b>Result</b>
     <async-template endpoint="http://vast-brushlands-3412.herokuapp.com/users" template="templates/users_list.html" />
@@ -46,10 +46,10 @@
     </p>
 
     <b>First directive usage (HTTP GET)</b>
-    <pre class="prettyprint">&lt;async-template endpoint="http://vast-brushlands-3412.herokuapp.com/user/:userId/info" template="templates/user_info.html" show-tags="{{showTags}}" user-id="{{getUserId()}}" observe="userId"&gt;loading ...&lt;/async-template&gt;</pre>
+    <pre class="prettyprint ng-non-bindable">&lt;async-template endpoint="http://vast-brushlands-3412.herokuapp.com/user/:userId/info" template="templates/user_info.html" show-tags="{{showTags}}" user-id="{{getUserId()}}" observe="userId"&gt;loading ...&lt;/async-template&gt;</pre>
 
     <b>Second directive usage (JSONP)</b>
-    <pre class="prettyprint">&lt;async-template jsonp="true" endpoint="http://vast-brushlands-3412.herokuapp.com/user/:userId/tasks" template="templates/user_tasks.html" user-id="{{getUserId()}}" error-template="templates/error-tpl.html"&gt;loading ...&lt;/async-template&gt;</pre>
+    <pre class="prettyprint ng-non-bindable">&lt;async-template jsonp="true" endpoint="http://vast-brushlands-3412.herokuapp.com/user/:userId/tasks" template="templates/user_tasks.html" user-id="{{getUserId()}}" error-template="templates/error-tpl.html"&gt;loading ...&lt;/async-template&gt;</pre>
 
 
     <b>Result</b>
@@ -90,7 +90,7 @@
     </p>
 
     <b>Usage</b>
-    <pre class="prettyprint">&lt;async-template jsonp="true" endpoint="http://vast-brushlands-3412.herokuapp.com/:subject" template="templates/reload.html" subject="{{subject}}" reload-interval="{{interval}}" error-template="templates/error-tpl.html"&gt;loading ...&lt;/async-template&gt;</pre>
+    <pre class="prettyprint ng-non-bindable">&lt;async-template jsonp="true" endpoint="http://vast-brushlands-3412.herokuapp.com/:subject" template="templates/reload.html" subject="{{subject}}" reload-interval="{{interval}}" error-template="templates/error-tpl.html"&gt;loading ...&lt;/async-template&gt;</pre>
 
     <b>Result</b>
     <label for="subject">Subject</label>
